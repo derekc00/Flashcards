@@ -15,6 +15,7 @@
 		6DF9C9902408F9A000F41E47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6DF9C98E2408F9A000F41E47 /* LaunchScreen.storyboard */; };
 		6DF9C99B2408F9A000F41E47 /* Flashcard_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9C99A2408F9A000F41E47 /* Flashcard_AppTests.swift */; };
 		6DF9C9A62408F9A000F41E47 /* Flashcard_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9C9A52408F9A000F41E47 /* Flashcard_AppUITests.swift */; };
+		6DF9C9B424091F4F00F41E47 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9C9B324091F4F00F41E47 /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		6DF9C9A12408F9A000F41E47 /* Flashcard AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flashcard AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF9C9A52408F9A000F41E47 /* Flashcard_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard_AppUITests.swift; sourceTree = "<group>"; };
 		6DF9C9A72408F9A000F41E47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DF9C9B324091F4F00F41E47 /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				6DF9C98C2408F9A000F41E47 /* Assets.xcassets */,
 				6DF9C98E2408F9A000F41E47 /* LaunchScreen.storyboard */,
 				6DF9C9912408F9A000F41E47 /* Info.plist */,
+				6DF9C9B324091F4F00F41E47 /* CreationViewController.swift */,
 			);
 			path = "Flashcard App";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				6DF9C9882408F99D00F41E47 /* ViewController.swift in Sources */,
 				6DF9C9842408F99D00F41E47 /* AppDelegate.swift in Sources */,
 				6DF9C9862408F99D00F41E47 /* SceneDelegate.swift in Sources */,
+				6DF9C9B424091F4F00F41E47 /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,7 +43,7 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dar-Yt-kwF">
-                                <rect key="frame" x="41.5" y="441.5" width="331" height="358.5"/>
+                                <rect key="frame" x="41.5" y="396" width="331" height="358.5"/>
                                 <subviews>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GU5-Vx-vPU">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="83.5"/>
@@ -56,7 +56,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLz-hG-2B8">
-                                        <rect key="frame" x="0.0" y="91.5" width="331" height="84"/>
+                                        <rect key="frame" x="0.0" y="91.5" width="331" height="83.5"/>
                                         <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="25"/>
                                         <state key="normal" title="Answer 2">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -66,7 +66,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pSj-ul-4OH">
-                                        <rect key="frame" x="0.0" y="183.5" width="331" height="83.5"/>
+                                        <rect key="frame" x="0.0" y="183" width="331" height="84"/>
                                         <fontDescription key="fontDescription" name="GeezaPro" family="Geeza Pro" pointSize="25"/>
                                         <state key="normal" title="Answer 3">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -87,19 +87,39 @@
                                     </button>
                                 </subviews>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="Yqr-Aj-CiU" firstAttribute="top" secondItem="pSj-ul-4OH" secondAttribute="bottom" constant="8" id="vww-RP-hHb"/>
+                                </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2m-Uw-xzK">
+                                <rect key="frame" x="172" y="787" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="13i-9B-Nm7"/>
+                                    <constraint firstAttribute="height" constant="70" id="zjR-Gb-Gqd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="IMy-nd-U7g" kind="presentation" id="Qws-I9-rcD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dar-Yt-kwF" secondAttribute="bottom" constant="62" id="0UX-Bs-qEm"/>
                             <constraint firstItem="Dar-Yt-kwF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9IK-oU-3He"/>
                             <constraint firstItem="YDQ-s6-qPx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="68" id="Aah-gz-ykC"/>
                             <constraint firstItem="YDQ-s6-qPx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="AnG-tg-K9j"/>
                             <constraint firstItem="Dar-Yt-kwF" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="DHd-Dm-prs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O2m-Uw-xzK" secondAttribute="bottom" constant="5" id="MhH-U5-6Ep"/>
+                            <constraint firstItem="YDQ-s6-qPx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="68" id="PH9-ss-Vfp"/>
                             <constraint firstItem="YDQ-s6-qPx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.267857" id="VEW-Qt-AUA"/>
                             <constraint firstItem="YDQ-s6-qPx" firstAttribute="centerX" secondItem="Dar-Yt-kwF" secondAttribute="centerX" id="X7M-4R-58G"/>
+                            <constraint firstItem="O2m-Uw-xzK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YUh-Du-bQs"/>
                             <constraint firstItem="Dar-Yt-kwF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="uLC-9f-cbS"/>
+                            <constraint firstItem="Dar-Yt-kwF" firstAttribute="top" secondItem="YDQ-s6-qPx" secondAttribute="bottom" constant="44" id="vG2-sg-gtl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -131,7 +151,70 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="350.72463768115944" y="-24.107142857142858"/>
+            <point key="canvasLocation" x="451" y="-24"/>
+        </scene>
+        <!--Creation View Controller-->
+        <scene sceneID="ToF-Mk-cIR">
+            <objects>
+                <viewController id="clN-kN-v1B" customClass="CreationViewController" customModule="Flashcard_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="o5m-93-FWH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-Rt-Dom">
+                                <rect key="frame" x="34" y="143" width="346" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IXw-gA-1zV">
+                                <rect key="frame" x="34" y="243" width="346" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zak-aj-mJO"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2HP-dm-3f5">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="2rj-km-k9k">
+                            <connections>
+                                <action selector="didTapOnCancel:" destination="clN-kN-v1B" id="sYy-YS-Z6e"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="jbv-IG-C4b">
+                            <connections>
+                                <action selector="didTapOnDone:" destination="clN-kN-v1B" id="VNw-Km-CTJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="answerTextField" destination="IXw-gA-1zV" id="K2r-64-mJn"/>
+                        <outlet property="questionTextField" destination="Gjt-Rt-Dom" id="gKi-nY-YYm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WES-Mi-dVZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752" y="-24"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="w93-SL-4Xm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IMy-nd-U7g" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="psj-jH-0x7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="clN-kN-v1B" kind="relationship" relationship="rootViewController" id="uIF-f8-SnX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZZJ-GF-tLi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1098.5507246376812" y="-24.107142857142858"/>
         </scene>
     </scenes>
 </document>
