@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="336" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -161,20 +161,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-Rt-Dom">
-                                <rect key="frame" x="34" y="143" width="346" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-Rt-Dom">
+                                <rect key="frame" x="31" y="143" width="352" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="Xq8-Kl-Yo8">
+                                <rect key="frame" x="31" y="243" width="352" height="223"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IXw-gA-1zV">
+                                        <rect key="frame" x="0.0" y="0.0" width="352" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Tt-z6-DGz">
+                                        <rect key="frame" x="0.0" y="63" width="352" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="as8-za-ess">
+                                        <rect key="frame" x="0.0" y="126" width="352" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer 4" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTG-aI-h1g">
+                                        <rect key="frame" x="0.0" y="189" width="352" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2mt-2K-6gP">
+                                <rect key="frame" x="44" y="434" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IXw-gA-1zV">
-                                <rect key="frame" x="34" y="243" width="346" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Til-9v-e7L">
+                                <rect key="frame" x="44" y="377" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="YJp-mR-hbk">
+                                <rect key="frame" x="31" y="501" width="352" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                    <segment title="Third"/>
+                                    <segment title="Fourth"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Gjt-Rt-Dom" firstAttribute="top" secondItem="zak-aj-mJO" secondAttribute="top" constant="87" id="2HC-MC-C4m"/>
+                            <constraint firstItem="Gjt-Rt-Dom" firstAttribute="width" secondItem="o5m-93-FWH" secondAttribute="width" multiplier="0.85" id="6RG-iZ-vX7"/>
+                            <constraint firstItem="YJp-mR-hbk" firstAttribute="centerX" secondItem="zak-aj-mJO" secondAttribute="centerX" id="DEz-9t-qM4"/>
+                            <constraint firstItem="YJp-mR-hbk" firstAttribute="width" secondItem="o5m-93-FWH" secondAttribute="width" multiplier="0.85" id="EjV-2f-UTj"/>
+                            <constraint firstItem="Gjt-Rt-Dom" firstAttribute="centerX" secondItem="zak-aj-mJO" secondAttribute="centerX" id="GVL-rp-AXq"/>
+                            <constraint firstItem="YJp-mR-hbk" firstAttribute="top" secondItem="Xq8-Kl-Yo8" secondAttribute="bottom" constant="35" id="QZF-LP-xgk"/>
+                            <constraint firstItem="Xq8-Kl-Yo8" firstAttribute="top" secondItem="Gjt-Rt-Dom" secondAttribute="bottom" constant="66" id="SmB-EC-rpy"/>
+                            <constraint firstItem="Xq8-Kl-Yo8" firstAttribute="centerX" secondItem="zak-aj-mJO" secondAttribute="centerX" id="ZeG-3N-ra3"/>
+                            <constraint firstItem="Xq8-Kl-Yo8" firstAttribute="width" secondItem="o5m-93-FWH" secondAttribute="width" multiplier="0.85" id="jD5-Id-EAn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zak-aj-mJO"/>
                     </view>
                     <navigationItem key="navigationItem" id="2HP-dm-3f5">
@@ -190,13 +240,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="answerTextField" destination="IXw-gA-1zV" id="K2r-64-mJn"/>
+                        <outlet property="answer1" destination="IXw-gA-1zV" id="K2r-64-mJn"/>
+                        <outlet property="answer2" destination="1Tt-z6-DGz" id="9Ig-nr-XDl"/>
+                        <outlet property="answer3" destination="as8-za-ess" id="BKo-F2-VSl"/>
+                        <outlet property="answer4" destination="uTG-aI-h1g" id="7rI-hQ-zrC"/>
+                        <outlet property="correctAnswerControl" destination="YJp-mR-hbk" id="uxF-n9-aTq"/>
                         <outlet property="questionTextField" destination="Gjt-Rt-Dom" id="gKi-nY-YYm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WES-Mi-dVZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1752" y="-24"/>
+            <point key="canvasLocation" x="1750.7246376811595" y="-24.107142857142858"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w93-SL-4Xm">

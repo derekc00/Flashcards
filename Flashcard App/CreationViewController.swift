@@ -12,8 +12,12 @@ class CreationViewController: UIViewController {
 
     var flashcardsController: ViewController!
     @IBOutlet weak var questionTextField: UITextField!
-    @IBOutlet weak var answerTextField: UITextField!
+    @IBOutlet weak var answer1: UITextField!
+    @IBOutlet weak var answer2: UITextField!
+    @IBOutlet weak var answer3: UITextField!
+    @IBOutlet weak var answer4: UITextField!
     
+    @IBOutlet weak var correctAnswerControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,7 +32,7 @@ class CreationViewController: UIViewController {
         let questionText = questionTextField.text
         
         //Get the text in the answer text field
-        let answerText = answerTextField.text
+        let answerText = answer1.text
         
         if (questionText == ""){
             let alertController = UIAlertController(title: "Error", message:
@@ -41,8 +45,24 @@ class CreationViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
             self.present(alertController, animated: true, completion: nil)
         }else {
-            print(questionText, " ", answerText)
-            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!)
+           
+            var inputtedAnswers:[String] = [answerText!]
+            if (answer2.text != ""){
+                inputtedAnswers.append(answer2.text!)
+            }
+            if (answer3.text != ""){
+                inputtedAnswers.append(answer3.text!)
+            }
+            if (answer4.text != ""){
+                inputtedAnswers.append(answer4.text!)
+            }
+            
+            var correctAnswerString: String = inputtedAnswers[correctAnswerControl.selectedSegmentIndex]
+            if (correctAnswerString == ""){
+                correctAnswerString = answerText!
+            }
+            
+            flashcardsController.updateFlashcard(question: questionText!, answers: inputtedAnswers, correctAnswer: correctAnswerString)
             dismiss(animated: true, completion: nil)
         }
        
