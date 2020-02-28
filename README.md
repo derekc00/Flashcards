@@ -4,12 +4,11 @@
 ## Lab 1
 
 ### App Description
-`TODO://` Add app description
-
+Simple FlashCard App
 ### App Walk-though
 
 
-<img src="https://i.imgur.com/0yQesRJ.gifv" width=200><br>
+<img src="https://i.imgur.com/0yQesRJ.gif" width=200><br>
 
 
 ## Required
