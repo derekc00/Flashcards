@@ -133,10 +133,10 @@
                         <outlet property="answer4" destination="Yqr-Aj-CiU" id="HnW-DL-dCL"/>
                         <outlet property="backLabel" destination="mSB-MB-Zo1" id="8dH-N2-cRV"/>
                         <outlet property="frontLabel" destination="0XU-gA-gfF" id="W0S-N1-46C"/>
-                        <outletCollection property="answerChoices" destination="GU5-Vx-vPU" collectionClass="NSMutableArray" id="7U4-Hm-Hi5"/>
-                        <outletCollection property="answerChoices" destination="KLz-hG-2B8" collectionClass="NSMutableArray" id="AXu-ME-yoF"/>
-                        <outletCollection property="answerChoices" destination="pSj-ul-4OH" collectionClass="NSMutableArray" id="bhA-T9-Fz0"/>
-                        <outletCollection property="answerChoices" destination="Yqr-Aj-CiU" collectionClass="NSMutableArray" id="yGy-gt-nuX"/>
+                        <outletCollection property="answerButtons" destination="GU5-Vx-vPU" collectionClass="NSMutableArray" id="7U4-Hm-Hi5"/>
+                        <outletCollection property="answerButtons" destination="KLz-hG-2B8" collectionClass="NSMutableArray" id="AXu-ME-yoF"/>
+                        <outletCollection property="answerButtons" destination="pSj-ul-4OH" collectionClass="NSMutableArray" id="bhA-T9-Fz0"/>
+                        <outletCollection property="answerButtons" destination="Yqr-Aj-CiU" collectionClass="NSMutableArray" id="yGy-gt-nuX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

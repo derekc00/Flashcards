@@ -8,16 +8,22 @@
 
 import UIKit
 
+struct Flashcard {
+    var question: String
+    var correctAnswer: String
+    var choices: [String]
+    
+}
 class ViewController: UIViewController {
 
     
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var frontLabel: UILabel!
     
-    let blackColor = UIColor.black.cgColor
-    let whiteColor = UIColor.white
-    let correctColor = UIColor.init(red: 166/255, green: 198/255, blue: 76/255, alpha: 1)
-    let wrongColor = UIColor.init(red: 200/255, green: 0/255, blue: 3/255, alpha: 1)
+//    let blackColor = UIColor.black.cgColor
+//    let whiteColor = UIColor.white
+//    let correctColor = UIColor.init(red: 166/255, green: 198/255, blue: 76/255, alpha: 1)
+//    let wrongColor = UIColor.init(red: 200/255, green: 0/255, blue: 3/255, alpha: 1)
     
     @IBOutlet weak var answer1: UIButton!
     @IBOutlet weak var answer2: UIButton!
@@ -25,22 +31,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var answer4: UIButton!
     
     //holds all four answer choices
-    @IBOutlet var answerChoices: [UIButton]!
+    @IBOutlet var answerButtons: [UIButton]!
     
-    var questionBank: [Question] = []
+    var flashcards: [Flashcard] = []
     var questionNumber: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         
         addBorders()
         
-        let sample = Question(questionText: "Favorite Animal?", inputAnswers: ["Dog", "Cat", "Owl", "Horse"], correctAnswerText: "Cat")
-        let sample2 = Question(questionText: "Favorite Color", inputAnswers: ["Red", "Green", "Blue"], correctAnswerText: "Blue")
-        questionBank.append(sample)
-        questionBank.append(sample2)
-        
-        frontLabel.text = questionBank[questionNumber].question
-        backLabel.text = questionBank[questionNumber].correctAnswer
+        let sample = Flashcard(question: "Favorite Color?", correctAnswer: "blue", choices: ["red", "blue", "green","yellow"])
+
+        flashcards.append(sample)
+
+        frontLabel.text = flashcards[questionNumber].question
+        backLabel.text = flashcards[questionNumber].correctAnswer
         populateAnswers()
     }
     
@@ -49,37 +54,37 @@ class ViewController: UIViewController {
     func populateAnswers(){
         
         //Set all slots to empty
-        for slots in answerChoices{
+        for slots in answerButtons{
             slots.setTitle("", for: .normal)
             slots.layer.borderWidth = 0.0
         }
         //populate slots according to given answer choices
         var count = 0
-        for answer in questionBank[questionNumber].answers{
-            answerChoices[count].setTitle(answer, for: .normal)
-            answerChoices[count].layer.borderWidth = 1.0
+        for answer in flashcards[questionNumber].choices.shuffled() {
+            answerButtons[count].setTitle(answer, for: .normal)
+            answerButtons[count].layer.borderWidth = 1.0
             count += 1
         }
     }
     
     func updateCards(){
         //if finished the deck
-        if (questionNumber >= questionBank.count){
+        if (questionNumber >= flashcards.count){
             let alertController = UIAlertController(title: "Finished!", message:
                 "Your deck will be reset", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: {
                 action in
                 self.questionNumber = 0
-               self.frontLabel.text = self.questionBank[self.questionNumber].question
-               self.backLabel.text = self.questionBank[self.questionNumber].correctAnswer
+               self.frontLabel.text = self.flashcards[self.questionNumber].question
+               self.backLabel.text = self.flashcards[self.questionNumber].correctAnswer
                self.populateAnswers()
             }))
             self.present(alertController, animated: true){
                
             }
         }else{  //if did not finish the deck
-            frontLabel.text = questionBank[questionNumber].question
-            backLabel.text = questionBank[questionNumber].correctAnswer
+            frontLabel.text = flashcards[questionNumber].question
+            backLabel.text = flashcards[questionNumber].correctAnswer
             populateAnswers()
         }
         
@@ -88,8 +93,8 @@ class ViewController: UIViewController {
     @IBAction func answerPressed(_ sender: UIButton) {
         
         //if correct answer is pressed
-        if (sender.titleLabel?.text == questionBank[questionNumber].correctAnswer){
-            sender.backgroundColor = correctColor
+        if (sender.titleLabel?.text == flashcards[questionNumber].correctAnswer){
+            sender.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
             questionNumber += 1
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 sender.backgroundColor = .none
@@ -98,7 +103,7 @@ class ViewController: UIViewController {
             
         //if wrong answer is pressed
         }else{
-            sender.backgroundColor = wrongColor
+            sender.backgroundColor = #colorLiteral(red: 0.9472755393, green: 0.3195192864, blue: 0.351960375, alpha: 1)
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 sender.backgroundColor = .none
             }
@@ -114,9 +119,9 @@ class ViewController: UIViewController {
             frontLabel.isHidden = true
             
             //highlights correct answer is the backLabel is revealed
-            for choice in answerChoices{
+            for choice in answerButtons{
                 if (choice.titleLabel?.text == backLabel.text){
-                    choice.backgroundColor = correctColor
+                    choice.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                         choice.backgroundColor = .none
                     }
@@ -128,14 +133,14 @@ class ViewController: UIViewController {
     
     func addBorders(){
         //Question border init
-        backLabel.layer.borderColor = blackColor
+        backLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         backLabel.layer.borderWidth = 1.0
-        frontLabel.layer.borderColor = blackColor
+        frontLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         frontLabel.layer.borderWidth = 1.0
         
         //answer border init
-        for answer in answerChoices{
-            answer.layer.borderColor = blackColor
+        for answer in answerButtons{
+            answer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             answer.layer.borderWidth = 0.5
         }
     }
@@ -145,15 +150,15 @@ class ViewController: UIViewController {
     //reset answer choice if pressed outside a button
     @IBAction func didTapOutside(_ sender: Any) {
         
-        for answer in answerChoices{
-            answer.backgroundColor = whiteColor
+        for answer in answerButtons{
+            answer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
     }
     
     func updateFlashcard(question: String, answers: [String], correctAnswer: String ){
-           let newQuestion = Question(questionText: question, inputAnswers: answers, correctAnswerText: correctAnswer)
+        let flashcard = Flashcard(question: question, correctAnswer: correctAnswer, choices: answers)
         
-        questionBank.append(newQuestion)
+        flashcards.append(flashcard)
         
         updateCards()
         
