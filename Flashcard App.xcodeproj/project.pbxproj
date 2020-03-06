@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D19DC772412412C00E8665D /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D19DC762412412C00E8665D /* ViewExtensions.swift */; };
 		6DF9C9842408F99D00F41E47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9C9832408F99D00F41E47 /* AppDelegate.swift */; };
 		6DF9C9862408F99D00F41E47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9C9852408F99D00F41E47 /* SceneDelegate.swift */; };
 		6DF9C9882408F99D00F41E47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF9C9872408F99D00F41E47 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D19DC762412412C00E8665D /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		6DF9C9802408F99D00F41E47 /* Flashcard App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flashcard App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DF9C9832408F99D00F41E47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6DF9C9852408F99D00F41E47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				6DF9C98E2408F9A000F41E47 /* LaunchScreen.storyboard */,
 				6DF9C9912408F9A000F41E47 /* Info.plist */,
 				6DF9C9B324091F4F00F41E47 /* CreationViewController.swift */,
+				6D19DC762412412C00E8665D /* ViewExtensions.swift */,
 			);
 			path = "Flashcard App";
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				6DF9C9882408F99D00F41E47 /* ViewController.swift in Sources */,
 				6DF9C9842408F99D00F41E47 /* AppDelegate.swift in Sources */,
 				6DF9C9862408F99D00F41E47 /* SceneDelegate.swift in Sources */,
+				6D19DC772412412C00E8665D /* ViewExtensions.swift in Sources */,
 				6DF9C9B424091F4F00F41E47 /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

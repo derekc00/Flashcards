@@ -18,17 +18,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDQ-s6-qPx">
                                 <rect key="frame" x="41.5" y="112" width="331" height="240"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Brasilla" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSB-MB-Zo1">
-                                        <rect key="frame" x="0.0" y="0.0" width="336" height="240"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brasilla" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSB-MB-Zo1">
+                                        <rect key="frame" x="0.0" y="18" width="331" height="204"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What is the capital of Brazil?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XU-gA-gfF">
-                                        <rect key="frame" x="0.0" y="0.0" width="336" height="240"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the capital of Brazil?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XU-gA-gfF">
+                                        <rect key="frame" x="0.0" y="18" width="331" height="204"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
@@ -38,6 +36,16 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="0XU-gA-gfF" firstAttribute="width" secondItem="YDQ-s6-qPx" secondAttribute="width" id="0f6-Pv-0ec"/>
+                                    <constraint firstItem="0XU-gA-gfF" firstAttribute="centerX" secondItem="YDQ-s6-qPx" secondAttribute="centerX" id="Hg7-9V-SZa"/>
+                                    <constraint firstItem="mSB-MB-Zo1" firstAttribute="width" secondItem="YDQ-s6-qPx" secondAttribute="width" id="TSL-e8-IML"/>
+                                    <constraint firstItem="0XU-gA-gfF" firstAttribute="centerY" secondItem="YDQ-s6-qPx" secondAttribute="centerY" id="WHW-Rm-3zH"/>
+                                    <constraint firstItem="mSB-MB-Zo1" firstAttribute="centerY" secondItem="YDQ-s6-qPx" secondAttribute="centerY" id="bZG-ne-JZr"/>
+                                    <constraint firstItem="mSB-MB-Zo1" firstAttribute="centerX" secondItem="YDQ-s6-qPx" secondAttribute="centerX" id="pTu-cp-rJ9"/>
+                                    <constraint firstItem="mSB-MB-Zo1" firstAttribute="height" secondItem="YDQ-s6-qPx" secondAttribute="height" multiplier="0.85" id="wCe-kQ-fal"/>
+                                    <constraint firstItem="0XU-gA-gfF" firstAttribute="height" secondItem="YDQ-s6-qPx" secondAttribute="height" multiplier="0.85" id="xZ7-BR-XIG"/>
+                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="qDS-1w-L6O" appends="YES" id="dI0-ih-KRW"/>
                                 </connections>
@@ -91,33 +99,42 @@
                                     <constraint firstItem="Yqr-Aj-CiU" firstAttribute="top" secondItem="pSj-ul-4OH" secondAttribute="bottom" constant="8" id="vww-RP-hHb"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2m-Uw-xzK">
-                                <rect key="frame" x="172" y="787" width="70" height="70"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2m-Uw-xzK">
+                                <rect key="frame" x="319" y="777" width="70" height="70"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="13i-9B-Nm7"/>
                                     <constraint firstAttribute="height" constant="70" id="zjR-Gb-Gqd"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                <state key="normal" title="+">
-                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <segue destination="IMy-nd-U7g" kind="presentation" id="Qws-I9-rcD"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="mFJ-bP-YyO">
+                                <rect key="frame" x="336.5" y="796.5" width="35" height="30.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O2m-Uw-xzK" secondAttribute="bottom" constant="15" id="0h5-DL-u9B"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O2m-Uw-xzK" secondAttribute="trailing" constant="25" id="28F-Jh-Acb"/>
+                            <constraint firstItem="mFJ-bP-YyO" firstAttribute="height" secondItem="O2m-Uw-xzK" secondAttribute="height" multiplier="0.5" id="5wo-NL-ZLA"/>
                             <constraint firstItem="Dar-Yt-kwF" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9IK-oU-3He"/>
                             <constraint firstItem="YDQ-s6-qPx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="68" id="Aah-gz-ykC"/>
                             <constraint firstItem="YDQ-s6-qPx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="AnG-tg-K9j"/>
                             <constraint firstItem="Dar-Yt-kwF" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.4" id="DHd-Dm-prs"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O2m-Uw-xzK" secondAttribute="bottom" constant="5" id="MhH-U5-6Ep"/>
+                            <constraint firstItem="mFJ-bP-YyO" firstAttribute="centerX" secondItem="O2m-Uw-xzK" secondAttribute="centerX" id="H9L-Yx-9xd"/>
                             <constraint firstItem="YDQ-s6-qPx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="68" id="PH9-ss-Vfp"/>
+                            <constraint firstItem="mFJ-bP-YyO" firstAttribute="centerY" secondItem="O2m-Uw-xzK" secondAttribute="centerY" id="URg-OH-oiv"/>
                             <constraint firstItem="YDQ-s6-qPx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.267857" id="VEW-Qt-AUA"/>
                             <constraint firstItem="YDQ-s6-qPx" firstAttribute="centerX" secondItem="Dar-Yt-kwF" secondAttribute="centerX" id="X7M-4R-58G"/>
-                            <constraint firstItem="O2m-Uw-xzK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YUh-Du-bQs"/>
+                            <constraint firstItem="mFJ-bP-YyO" firstAttribute="width" secondItem="O2m-Uw-xzK" secondAttribute="width" multiplier="0.5" id="buD-7h-t2u"/>
                             <constraint firstItem="Dar-Yt-kwF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="uLC-9f-cbS"/>
                             <constraint firstItem="Dar-Yt-kwF" firstAttribute="top" secondItem="YDQ-s6-qPx" secondAttribute="bottom" constant="44" id="vG2-sg-gtl"/>
                         </constraints>
@@ -127,11 +144,13 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="O2m-Uw-xzK" id="R7E-0j-nQI"/>
                         <outlet property="answer1" destination="GU5-Vx-vPU" id="qbR-d9-k8v"/>
                         <outlet property="answer2" destination="KLz-hG-2B8" id="CXM-Aq-Why"/>
                         <outlet property="answer3" destination="pSj-ul-4OH" id="Hwx-fU-dsj"/>
                         <outlet property="answer4" destination="Yqr-Aj-CiU" id="HnW-DL-dCL"/>
                         <outlet property="backLabel" destination="mSB-MB-Zo1" id="8dH-N2-cRV"/>
+                        <outlet property="cardView" destination="YDQ-s6-qPx" id="yfu-Pd-zin"/>
                         <outlet property="frontLabel" destination="0XU-gA-gfF" id="W0S-N1-46C"/>
                         <outletCollection property="answerButtons" destination="GU5-Vx-vPU" collectionClass="NSMutableArray" id="7U4-Hm-Hi5"/>
                         <outletCollection property="answerButtons" destination="KLz-hG-2B8" collectionClass="NSMutableArray" id="AXu-ME-yoF"/>
@@ -151,7 +170,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="451" y="-24"/>
+            <point key="canvasLocation" x="450.72463768115944" y="-24.107142857142858"/>
         </scene>
         <!--Creation View Controller-->
         <scene sceneID="ToF-Mk-cIR">
@@ -263,4 +282,7 @@
             <point key="canvasLocation" x="1098.5507246376812" y="-24.107142857142858"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrowtriangle.right.fill" catalog="system" width="64" height="56"/>
+    </resources>
 </document>

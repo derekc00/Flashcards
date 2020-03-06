@@ -16,6 +16,8 @@ struct Flashcard {
 }
 class ViewController: UIViewController {
 
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var addButton: UIButton!
     
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var frontLabel: UILabel!
@@ -38,7 +40,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addBorders()
+        cardView.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 2.6, height: 2.6), opacity: 0.8, shadowRadius: 5.0, cornerRadius: 20.0, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight])
+        
+        cardView.bringSubviewToFront(backLabel)
+        cardView.bringSubviewToFront(frontLabel)
+        
+        addButton.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 0.0, height: 0.0), opacity: 0.8, shadowRadius: 5.0, cornerRadius: 35.0, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight], fillColor: #colorLiteral(red: 0.2146924841, green: 0.3467160454, blue: 0.9650023794, alpha: 1))
+        
+        
+        
+        addShadowsToChoices()
         
         let sample = Flashcard(question: "Favorite Color?", correctAnswer: "blue", choices: ["red", "blue", "green","yellow"])
 
@@ -49,20 +60,17 @@ class ViewController: UIViewController {
         populateAnswers()
     }
     
-    
-    
     func populateAnswers(){
         
         //Set all slots to empty
         for slots in answerButtons{
             slots.setTitle("", for: .normal)
-            slots.layer.borderWidth = 0.0
+            slots.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
         }
         //populate slots according to given answer choices
         var count = 0
         for answer in flashcards[questionNumber].choices.shuffled() {
             answerButtons[count].setTitle(answer, for: .normal)
-            answerButtons[count].layer.borderWidth = 1.0
             count += 1
         }
     }
@@ -94,20 +102,14 @@ class ViewController: UIViewController {
         
         //if correct answer is pressed
         if (sender.titleLabel?.text == flashcards[questionNumber].correctAnswer){
-            sender.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+            sender.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: .normal)
             questionNumber += 1
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                sender.backgroundColor = .none
-            }
+
             updateCards()
             
         //if wrong answer is pressed
         }else{
-            sender.backgroundColor = #colorLiteral(red: 0.9472755393, green: 0.3195192864, blue: 0.351960375, alpha: 1)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                sender.backgroundColor = .none
-            }
-            
+            sender.setTitleColor(#colorLiteral(red: 0.9472755393, green: 0.3195192864, blue: 0.351960375, alpha: 1), for: .normal)
         }
     }
 
@@ -121,27 +123,18 @@ class ViewController: UIViewController {
             //highlights correct answer is the backLabel is revealed
             for choice in answerButtons{
                 if (choice.titleLabel?.text == backLabel.text){
-                    choice.backgroundColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                        choice.backgroundColor = .none
-                    }
+                    choice.titleLabel?.textColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
                 }
             }
             
         }
     }
     
-    func addBorders(){
-        //Question border init
-        backLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        backLabel.layer.borderWidth = 1.0
-        frontLabel.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        frontLabel.layer.borderWidth = 1.0
-        
+    func addShadowsToChoices(){
+
         //answer border init
-        for answer in answerButtons{
-            answer.layer.borderColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-            answer.layer.borderWidth = 0.5
+        for button in answerButtons{
+            button.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 2.6, height: 2.6), opacity: 0.8, shadowRadius: 5.0, cornerRadius: 20.0, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight])
         }
     }
     
