@@ -8,7 +8,7 @@ Allows for multiple answer choices
 
 ### App Walk-though
 
-<img src="Yhttps://i.imgur.com/8X9r2H2.gif" width=200><br>
+<img src="https://i.imgur.com/8X9r2H2.gif" width=200><br>
 
 
 ## Required
