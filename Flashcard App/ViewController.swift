@@ -54,9 +54,12 @@ class ViewController: UIViewController {
         
         addShadowsToChoices()
         
-        let sample = Flashcard(question: "Favorite Color?", correctAnswer: "blue", choices: ["red", "blue", "green","yellow"])
-
-        flashcards.append(sample)
+        readSavedFlashcards()
+        if flashcards.count == 0 {
+            let sample = Flashcard(question: "Favorite Color?", correctAnswer: "blue", choices: ["red", "blue", "green","yellow"])
+            flashcards.append(sample)
+        }
+        
 
         frontLabel.text = flashcards[questionNumber].question
         backLabel.text = flashcards[questionNumber].correctAnswer
@@ -174,6 +177,7 @@ class ViewController: UIViewController {
         flashcards.append(flashcard)
         
         updateCards()
+        saveAllFlashcardsToDisk()
         
     }
     
@@ -188,7 +192,27 @@ class ViewController: UIViewController {
         creationController.flashcardsController = self
     }
     
+    func saveAllFlashcardsToDisk() {
+        
+        //map array to dictionary
+//        let dictionaryArray = flashcards.map { (card) -> [String:String] in
+//            return ["question": card.question, "answer":card.correctAnswer]
+//        }
+        let dictionaryArray = flashcards.map { (card) -> [String:[String]] in
+            return ["question": [card.question], "correctAnswer": [card.correctAnswer], "choices": card.choices]
+        }
+        
+        UserDefaults.standard.set(dictionaryArray, forKey: "flashcards")
+    }
     
-    
+    func readSavedFlashcards() {
+        
+        if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String:[String]]] {
+            let savedCards = dictionaryArray.map { (dictionary) -> Flashcard in
+                return Flashcard(question: dictionary["question"]![0], correctAnswer: dictionary["correctAnswer"]![0], choices: dictionary["choices"]!)
+            }
+            flashcards.append(contentsOf: savedCards)
+        }
+    }
 }
 
