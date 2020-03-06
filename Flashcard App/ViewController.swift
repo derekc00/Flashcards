@@ -18,14 +18,13 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var backButtonImage: UIImageView!
     
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var frontLabel: UILabel!
     
-//    let blackColor = UIColor.black.cgColor
-//    let whiteColor = UIColor.white
-//    let correctColor = UIColor.init(red: 166/255, green: 198/255, blue: 76/255, alpha: 1)
-//    let wrongColor = UIColor.init(red: 200/255, green: 0/255, blue: 3/255, alpha: 1)
     
     @IBOutlet weak var answer1: UIButton!
     @IBOutlet weak var answer2: UIButton!
@@ -47,7 +46,11 @@ class ViewController: UIViewController {
         
         addButton.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 0.0, height: 0.0), opacity: 0.8, shadowRadius: 5.0, cornerRadius: 35.0, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight], fillColor: #colorLiteral(red: 0.2146924841, green: 0.3467160454, blue: 0.9650023794, alpha: 1))
         
-        
+        nextButton.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 0.0, height: 0.0), opacity: 0.8, shadowRadius: 2.0, cornerRadius: nextButton.frame.size.width / 2, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight], fillColor: #colorLiteral(red: 0.2146924841, green: 0.3467160454, blue: 0.9650023794, alpha: 1))
+        backButton.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 0.0, height: 0.0), opacity: 0.8, shadowRadius: 2.0, cornerRadius: nextButton.frame.size.width / 2, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight], fillColor: #colorLiteral(red: 0.2146924841, green: 0.3467160454, blue: 0.9650023794, alpha: 1))
+        //Flipped
+        backButtonImage.transform = CGAffineTransform(scaleX: -1, y: 1);
+
         
         addShadowsToChoices()
         
@@ -90,11 +93,19 @@ class ViewController: UIViewController {
             self.present(alertController, animated: true){
                
             }
-        }else{  //if did not finish the deck
+        //if question number wraps to from beginning to end
+        }else if (questionNumber < 0){
+            self.questionNumber = flashcards.count - 1
+            frontLabel.text = flashcards[questionNumber].question
+            backLabel.text = flashcards[questionNumber].correctAnswer
+            populateAnswers()
+        //normal back/forth
+        }else{
             frontLabel.text = flashcards[questionNumber].question
             backLabel.text = flashcards[questionNumber].correctAnswer
             populateAnswers()
         }
+        
         
     }
     //actions connected to all four answer buttons
@@ -113,6 +124,15 @@ class ViewController: UIViewController {
         }
     }
 
+    @IBAction func didTapOnNext(_ sender: Any) {
+        questionNumber += 1
+        updateCards()
+        
+    }
+    @IBAction func didTapOnBack(_ sender: Any) {
+        questionNumber -= 1
+        updateCards()
+    }
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         
         if (frontLabel.isHidden) {
