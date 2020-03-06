@@ -119,11 +119,11 @@
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="34r-ZZ-MbJ">
-                                <rect key="frame" x="319" y="30" width="70" height="70"/>
+                                <rect key="frame" x="349" y="70" width="40" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="F8Y-AX-fVt"/>
-                                    <constraint firstAttribute="width" constant="70" id="pOw-bT-aWr"/>
+                                    <constraint firstAttribute="height" constant="40" id="F8Y-AX-fVt"/>
+                                    <constraint firstAttribute="width" constant="40" id="pOw-bT-aWr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <state key="normal">
@@ -133,8 +133,8 @@
                                     <segue destination="IMy-nd-U7g" kind="presentation" id="reE-n4-Wbh"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.right.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CQo-N0-vjw">
-                                <rect key="frame" x="336.5" y="49.5" width="35" height="30.5"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus.app" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CQo-N0-vjw">
+                                <rect key="frame" x="359" y="81" width="20" height="17.5"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9pM-ql-99b">
@@ -186,7 +186,7 @@
                             <constraint firstItem="Dar-Yt-kwF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="uLC-9f-cbS"/>
                             <constraint firstItem="CQo-N0-vjw" firstAttribute="height" secondItem="34r-ZZ-MbJ" secondAttribute="height" multiplier="0.5" id="uX8-Gh-n8Z"/>
                             <constraint firstItem="Dar-Yt-kwF" firstAttribute="top" secondItem="YDQ-s6-qPx" secondAttribute="bottom" constant="44" id="vG2-sg-gtl"/>
-                            <constraint firstItem="34r-ZZ-MbJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="30" id="vzd-Bs-LOR"/>
+                            <constraint firstItem="34r-ZZ-MbJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="70" id="vzd-Bs-LOR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <connections>
@@ -338,5 +338,6 @@
     </scenes>
     <resources>
         <image name="arrowtriangle.right.fill" catalog="system" width="64" height="56"/>
+        <image name="plus.app" catalog="system" width="64" height="56"/>
     </resources>
 </document>
