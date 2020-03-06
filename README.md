@@ -1,12 +1,26 @@
 # FlashCards
-
-## Lab 2
+## Lab 3
 
 ### App Description
 Basic Flashcard app.
 Shows right/wrong answer
 Allows for multiple answer choices
 
+### App Walk-though
+
+<img src="Yhttps://i.imgur.com/8X9r2H2.gif" width=200><br>
+
+
+## Required
+- [x] User can browse through multiple flashcards
+- [x] User can re-open the app and see previously created flashcards
+- [x] Push code to GitHub
+## Optional
+- [x] User can delete a flashcard
+- [ ] User can edit existing flashcard
+- [x] User can store multiple choice questions
+
+## Lab 2
 ### App Walk-though
 
 <img src="https://i.imgur.com/xeZ60fU.gif" width=200><br>
