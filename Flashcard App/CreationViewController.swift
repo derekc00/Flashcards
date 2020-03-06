@@ -12,10 +12,10 @@ class CreationViewController: UIViewController {
 
     var flashcardsController: ViewController!
     @IBOutlet weak var questionTextField: UITextField!
-    @IBOutlet weak var answer1: UITextField!
-    @IBOutlet weak var answer2: UITextField!
-    @IBOutlet weak var answer3: UITextField!
-    @IBOutlet weak var answer4: UITextField!
+    @IBOutlet weak var correctAnswer: UITextField!
+    @IBOutlet weak var wrongAnswer1: UITextField!
+    @IBOutlet weak var wrongAnswer2: UITextField!
+    @IBOutlet weak var wrongAnswer3: UITextField!
     
     @IBOutlet weak var correctAnswerControl: UISegmentedControl!
     override func viewDidLoad() {
@@ -28,41 +28,44 @@ class CreationViewController: UIViewController {
     
     @IBAction func didTapOnDone(_ sender: Any) {
         
-        //Get the text in the question text field
-        let questionText = questionTextField.text
-        
-        //Get the text in the answer text field
-        let answerText = answer1.text
-        
-        if (questionText == ""){
+        //if question is blank
+        if (questionTextField.text == ""){
             let alertController = UIAlertController(title: "Error", message:
                 "Please Enter a Question", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
             self.present(alertController, animated: true, completion: nil)
-        }else if (answerText == ""){
+        }
+        //if answer is blank
+        else if (correctAnswer.text == ""){
             let alertController = UIAlertController(title: "Error", message:
-                "Please enter your answer(s)", preferredStyle: .alert)
+                "Please enter your answer", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
             self.present(alertController, animated: true, completion: nil)
-        }else {
+        }
+        //if no wrong answers are given
+        else if (wrongAnswer1.text == "" || wrongAnswer2.text == "" || wrongAnswer3.text == ""){
+            let alertController = UIAlertController(title: "Error", message:
+                "Please enter your answer", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: .default))
+            self.present(alertController, animated: true) {
+                self.flashcardsController.updateFlashcard(question: self.questionTextField.text!, answers: [], correctAnswer: self.correctAnswer.text!)
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        else {
            
-            var inputtedAnswers:[String] = [answerText!]
-            if (answer2.text != ""){
-                inputtedAnswers.append(answer2.text!)
+            var wrongAnswers:[String] = [correctAnswer.text!]
+            if (wrongAnswer1.text != ""){
+                wrongAnswers.append(wrongAnswer1.text!)
             }
-            if (answer3.text != ""){
-                inputtedAnswers.append(answer3.text!)
+            if (wrongAnswer2.text != ""){
+                wrongAnswers.append(wrongAnswer2.text!)
             }
-            if (answer4.text != ""){
-                inputtedAnswers.append(answer4.text!)
-            }
-            
-            var correctAnswerString: String = inputtedAnswers[correctAnswerControl.selectedSegmentIndex]
-            if (correctAnswerString == ""){
-                correctAnswerString = answerText!
+            if (wrongAnswer3.text != ""){
+                wrongAnswers.append(wrongAnswer3.text!)
             }
             
-            flashcardsController.updateFlashcard(question: questionText!, answers: inputtedAnswers, correctAnswer: correctAnswerString)
+            flashcardsController.updateFlashcard(question: questionTextField.text!, answers: wrongAnswers, correctAnswer: correctAnswer.text!)
             dismiss(animated: true, completion: nil)
         }
        
