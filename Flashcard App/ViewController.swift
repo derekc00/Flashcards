@@ -181,10 +181,6 @@ class ViewController: UIViewController {
     
     func saveAllFlashcardsToDisk() {
         
-        //map array to dictionary
-//        let dictionaryArray = flashcards.map { (card) -> [String:String] in
-//            return ["question": card.question, "answer":card.correctAnswer]
-//        }
         let dictionaryArray = flashcards.map { (card) -> [String:[String]] in
             return ["question": [card.question], "correctAnswer": [card.correctAnswer], "choices": card.choices]
         }
