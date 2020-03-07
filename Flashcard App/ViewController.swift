@@ -31,26 +31,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var answer3: UIButton!
     @IBOutlet weak var answer4: UIButton!
     
-    //holds all four answer choices
+    //holds all four answer choices buttons
     @IBOutlet var answerButtons: [UIButton]!
     
+    //holds all flashcard structs
     var flashcards: [Flashcard] = []
-    var questionNumber: Int = 0
+    //manages current flashcard being shown
+    var currentIndex: Int = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //adds shadows and colors
         configObjects()
         
+        //populate flashcard deck with UserDefaults
         readSavedFlashcards()
-        if flashcards.count == 0 {
-            let sample = Flashcard(question: "Favorite Color?", correctAnswer: "blue", choices: ["red", "blue", "green","yellow"])
-            flashcards.append(sample)
-        }
         
-
-        frontLabel.text = flashcards[questionNumber].question
-        backLabel.text = flashcards[questionNumber].correctAnswer
-        populateAnswers()
+        //shows first flashcard
+        updateCards()
     }
     
     func populateAnswers(){
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         }
         //populate slots according to given answer choices
         var count = 0
-        for answer in flashcards[questionNumber].choices.shuffled() {
+        for answer in flashcards[currentIndex].choices.shuffled() {
             answerButtons[count].setTitle(answer, for: .normal)
             count += 1
         }
@@ -70,29 +70,29 @@ class ViewController: UIViewController {
     
     func updateCards(){
         //if finished the deck
-        if (questionNumber >= flashcards.count){
+        if (currentIndex >= flashcards.count){
             let alertController = UIAlertController(title: "Finished!", message:
                 "Your deck will be reset", preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: {
                 action in
-                self.questionNumber = 0
-               self.frontLabel.text = self.flashcards[self.questionNumber].question
-               self.backLabel.text = self.flashcards[self.questionNumber].correctAnswer
+                self.currentIndex = 0
+               self.frontLabel.text = self.flashcards[self.currentIndex].question
+               self.backLabel.text = self.flashcards[self.currentIndex].correctAnswer
                self.populateAnswers()
             }))
             self.present(alertController, animated: true){
                
             }
         //if question number wraps to from beginning to end
-        }else if (questionNumber < 0){
-            self.questionNumber = flashcards.count - 1
-            frontLabel.text = flashcards[questionNumber].question
-            backLabel.text = flashcards[questionNumber].correctAnswer
+        }else if (currentIndex < 0){
+            self.currentIndex = flashcards.count - 1
+            frontLabel.text = flashcards[currentIndex].question
+            backLabel.text = flashcards[currentIndex].correctAnswer
             populateAnswers()
         //normal back/forth
         }else{
-            frontLabel.text = flashcards[questionNumber].question
-            backLabel.text = flashcards[questionNumber].correctAnswer
+            frontLabel.text = flashcards[currentIndex].question
+            backLabel.text = flashcards[currentIndex].correctAnswer
             populateAnswers()
         }
         
@@ -102,9 +102,9 @@ class ViewController: UIViewController {
     @IBAction func answerPressed(_ sender: UIButton) {
         
         //if correct answer is pressed
-        if (sender.titleLabel?.text == flashcards[questionNumber].correctAnswer){
+        if (sender.titleLabel?.text == flashcards[currentIndex].correctAnswer){
             sender.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: .normal)
-            questionNumber += 1
+            currentIndex += 1
 
             updateCards()
             
@@ -115,12 +115,12 @@ class ViewController: UIViewController {
     }
 
     @IBAction func didTapOnNext(_ sender: Any) {
-        questionNumber += 1
+        currentIndex += 1
         updateCards()
         
     }
     @IBAction func didTapOnBack(_ sender: Any) {
-        questionNumber -= 1
+        currentIndex -= 1
         updateCards()
     }
     @IBAction func didTapOnFlashcard(_ sender: Any) {
@@ -191,10 +191,12 @@ class ViewController: UIViewController {
     func readSavedFlashcards() {
         
         if let dictionaryArray = UserDefaults.standard.array(forKey: "flashcards") as? [[String:[String]]] {
+            print(flashcards.count)
             let savedCards = dictionaryArray.map { (dictionary) -> Flashcard in
                 return Flashcard(question: dictionary["question"]![0], correctAnswer: dictionary["correctAnswer"]![0], choices: dictionary["choices"]!)
             }
             flashcards.append(contentsOf: savedCards)
+            print(flashcards.count)
         }
     }
     
