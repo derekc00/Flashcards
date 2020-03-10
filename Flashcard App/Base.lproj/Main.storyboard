@@ -234,21 +234,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="h1p-0t-FvD">
-                                <rect key="frame" x="31" y="146" width="352" height="88"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-Rt-Dom">
-                                        <rect key="frame" x="0.0" y="0.0" width="352" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correct Answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IXw-gA-1zV">
-                                        <rect key="frame" x="0.0" y="54" width="352" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2mt-2K-6gP">
                                 <rect key="frame" x="44" y="434" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -261,36 +246,93 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="Xq8-Kl-Yo8">
-                                <rect key="frame" x="31" y="384" width="352" height="160"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wrong Answer 1" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Tt-z6-DGz">
-                                        <rect key="frame" x="0.0" y="0.0" width="352" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wrong Answer 2" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="as8-za-ess">
-                                        <rect key="frame" x="0.0" y="63" width="352" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wrong Answer 3" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTG-aI-h1g">
-                                        <rect key="frame" x="0.0" y="126" width="352" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFb-ft-ccW">
+                                <rect key="frame" x="31" y="91" width="80" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansMyanmar-Regular" family="Noto Sans Myanmar" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-Rt-Dom">
+                                <rect key="frame" x="31" y="114" width="352" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="beginEdit:" destination="clN-kN-v1B" eventType="editingDidBegin" id="nBY-Ij-3dk"/>
+                                    <action selector="endEdit:" destination="clN-kN-v1B" eventType="editingDidEnd" id="DbJ-yL-37v"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correct Answer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IXw-gA-1zV">
+                                <rect key="frame" x="31" y="176" width="352" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="beginEdit:" destination="clN-kN-v1B" eventType="editingDidBegin" id="vEk-ER-Gld"/>
+                                    <action selector="endEdit:" destination="clN-kN-v1B" eventType="editingDidEnd" id="xpE-V1-DFm"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wrong Answer 1 (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Tt-z6-DGz">
+                                <rect key="frame" x="31" y="238" width="352" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="beginEdit:" destination="clN-kN-v1B" eventType="editingDidBegin" id="lxc-Vx-Q6e"/>
+                                    <action selector="endEdit:" destination="clN-kN-v1B" eventType="editingDidEnd" id="uvl-aV-25k"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wrong Answer 2 (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="as8-za-ess">
+                                <rect key="frame" x="31" y="306" width="352" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="beginEdit:" destination="clN-kN-v1B" eventType="editingDidBegin" id="fCn-4P-WV8"/>
+                                    <action selector="endEdit:" destination="clN-kN-v1B" eventType="editingDidEnd" id="Iak-ZI-tGM"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wrong Answer 3 (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uTG-aI-h1g">
+                                <rect key="frame" x="31" y="374" width="352" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="beginEdit:" destination="clN-kN-v1B" eventType="editingDidBegin" id="cDw-Tk-XN8"/>
+                                    <action selector="endEdit:" destination="clN-kN-v1B" eventType="editingDidEnd" id="uD9-NN-jMn"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Correct Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w47-nr-TU2">
+                                <rect key="frame" x="31" y="156" width="138" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansMyanmar-Regular" family="Noto Sans Myanmar" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wrong Answer 1 (optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDt-U5-bGI">
+                                <rect key="frame" x="31" y="218" width="212" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansMyanmar-Regular" family="Noto Sans Myanmar" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wrong Answer 2 (optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imr-Vv-dvv">
+                                <rect key="frame" x="31" y="285" width="212" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansMyanmar-Regular" family="Noto Sans Myanmar" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wrong Answer 3 (optional)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VT9-th-iRX">
+                                <rect key="frame" x="31" y="351" width="212" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="NotoSansMyanmar-Regular" family="Noto Sans Myanmar" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Xq8-Kl-Yo8" firstAttribute="top" secondItem="h1p-0t-FvD" secondAttribute="bottom" constant="150" id="HbB-hL-dAP"/>
-                            <constraint firstItem="Xq8-Kl-Yo8" firstAttribute="centerX" secondItem="zak-aj-mJO" secondAttribute="centerX" id="ZeG-3N-ra3"/>
-                            <constraint firstItem="Xq8-Kl-Yo8" firstAttribute="width" secondItem="o5m-93-FWH" secondAttribute="width" multiplier="0.85" id="jD5-Id-EAn"/>
-                            <constraint firstItem="h1p-0t-FvD" firstAttribute="centerX" secondItem="zak-aj-mJO" secondAttribute="centerX" id="jg4-ap-5Je"/>
-                            <constraint firstItem="h1p-0t-FvD" firstAttribute="width" secondItem="o5m-93-FWH" secondAttribute="width" multiplier="0.85" id="nL2-xG-GFG"/>
-                            <constraint firstItem="h1p-0t-FvD" firstAttribute="top" secondItem="zak-aj-mJO" secondAttribute="top" constant="90" id="pmI-GK-fGq"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="zak-aj-mJO"/>
                     </view>
                     <navigationItem key="navigationItem" id="2HP-dm-3f5">
@@ -307,7 +349,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="correctAnswer" destination="IXw-gA-1zV" id="K2r-64-mJn"/>
+                        <outlet property="correctAnswerLabel" destination="w47-nr-TU2" id="Bqw-CA-wrk"/>
+                        <outlet property="questionLabel" destination="FFb-ft-ccW" id="i4e-18-ovf"/>
                         <outlet property="questionTextField" destination="Gjt-Rt-Dom" id="gKi-nY-YYm"/>
+                        <outlet property="wrong1Label" destination="PDt-U5-bGI" id="5wA-rJ-wHq"/>
+                        <outlet property="wrong2Label" destination="Imr-Vv-dvv" id="YuN-x9-nWz"/>
+                        <outlet property="wrong3Label" destination="VT9-th-iRX" id="93v-Pj-t16"/>
                         <outlet property="wrongAnswer1" destination="1Tt-z6-DGz" id="9Ig-nr-XDl"/>
                         <outlet property="wrongAnswer2" destination="as8-za-ess" id="BKo-F2-VSl"/>
                         <outlet property="wrongAnswer3" destination="uTG-aI-h1g" id="7rI-hQ-zrC"/>
