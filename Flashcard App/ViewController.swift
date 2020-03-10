@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Lottie
+
 
 struct Flashcard {
     var question: String

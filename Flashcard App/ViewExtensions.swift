@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+// Adds shadow effect to any View
 extension UIView {
     
     func addShadow(shadowColor: UIColor, offSet: CGSize, opacity: Float, shadowRadius: CGFloat, cornerRadius: CGFloat, corners: UIRectCorner, fillColor: UIColor = .white) {
