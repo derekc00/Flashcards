@@ -74,9 +74,9 @@ class ViewController: UIViewController {
             nextButton.setImage(UIImage.init(named: "arrowRightDisabled"), for: .normal)
             nextButton.isUserInteractionEnabled = false
         }else{
-            backButton.setImage(UIImage.init(named: "arrowLeftEnabled"), for: .normal)
+            backButton.setImage(UIImage.init(named: "arrowLeft"), for: .normal)
             backButton.isUserInteractionEnabled = true
-            nextButton.setImage(UIImage.init(named: "arrowRightEnabled"), for: .normal)
+            nextButton.setImage(UIImage.init(named: "arrowRight"), for: .normal)
             nextButton.isUserInteractionEnabled = true
         }
     }
@@ -147,12 +147,14 @@ class ViewController: UIViewController {
 
     @IBAction func didTapOnNext(_ sender: Any) {
         currentIndex += 1
-        updateCards()
+//        updateCards()
+        animateCardOutLeft()
         
     }
     @IBAction func didTapOnBack(_ sender: Any) {
         currentIndex -= 1
-        updateCards()
+//        updateCards()
+        animateCardOutRight()
     }
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         
@@ -173,6 +175,48 @@ class ViewController: UIViewController {
         }
         })
     }
+    
+    func animateCardOutLeft(){
+        UIView.animate(withDuration: 0.2, animations: {
+            self.cardView.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        }) { (finsihed) in
+            
+            //update the text to maintain animation
+            self.updateCards()
+            
+            //bring new card in
+            self.animateCardRightIn()
+        }
+    }
+    func animateCardRightIn(){
+        //begin 300 pixels to the right
+        self.cardView.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        //bring the new card in from the right to its original position
+        UIView.animate(withDuration: 0.2) {
+            self.cardView.transform = CGAffineTransform.identity
+        }
+    }
+    func animateCardOutRight(){
+        UIView.animate(withDuration: 0.2, animations: {
+            self.cardView.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
+        }) { (finsihed) in
+            
+            //update the text to maintain animation
+            self.updateCards()
+            
+            //bring new card in
+            self.animateCardLeftIn()
+        }
+    }
+    func animateCardLeftIn(){
+        //begin 300 pixels to the left
+        self.cardView.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
+        //bring the new card in from the right to its original position
+        UIView.animate(withDuration: 0.2) {
+            self.cardView.transform = CGAffineTransform.identity
+        }
+    }
+    
     
     func addShadowsToChoices(){
 
