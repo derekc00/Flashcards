@@ -74,6 +74,7 @@ class ViewController: UIViewController {
             nextButton.setImage(UIImage.init(named: "arrowRightDisabled"), for: .normal)
             nextButton.isUserInteractionEnabled = false
         }else{
+            print("populated")
             backButton.setImage(UIImage.init(named: "arrowLeft"), for: .normal)
             backButton.isUserInteractionEnabled = true
             nextButton.setImage(UIImage.init(named: "arrowRight"), for: .normal)
