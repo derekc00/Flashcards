@@ -1,11 +1,30 @@
 # FlashCards
-## Lab 3
-## FlashCards
+
+## Lab 4
 
 ### App Description
 Basic Flashcard app.
 Shows right/wrong answer
 Allows for multiple answer choices
+
+### App Walk-though
+
+<img src="https://i.imgur.com/BbAMqf6.gifv" width=200><br>
+
+
+## Required
+- [x] User should see the app icon 
+- [x] User should see a splash screen
+- [x] User should see an flip animation when revealing the answer
+- [x] User should see a slide animation when going to the next flashcard
+- [x] User should see a slide animation when going to the previous flashcard
+- [x] Push code to GitHub
+## Optional
+- [x] User should see a nicer flaschard with rounded corners, shadows, and animating when showing the first time
+- [x] User should see all views properly layout when using the app on a phone of different sizes
+- [x] Correct answer in multiple choice should be random
+
+## Lab 3
 
 ### App Walk-though
 
