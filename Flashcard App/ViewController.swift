@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var backButtonImage: UIImageView!
+//    @IBOutlet weak var backButtonImage: UIImageView!
     
     @IBOutlet weak var backLabel: UILabel!
     @IBOutlet weak var frontLabel: UILabel!
@@ -52,24 +52,32 @@ class ViewController: UIViewController {
         //populate flashcard deck with UserDefaults
         readSavedFlashcards()
         
-        //shows first flashcard
-        if flashcards.count == 0 {
-            displayEmptyDeck()
-        }else{
-            updateCards()
-        }
+        
+        updateCards()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if flashcards.count != 0 {
+
+        //if there are no cards, then disable back/next buttons
+        if (flashcards.count == 0){
+            frontLabel.text = "It's empty here :( \n\nAdd some cards to get started!"
+            backLabel.text = "It's still empty over here."
             
-            nextButton.isHidden = false
-            backButton.isHidden = false
-        }else{
-            for slot in answerButtons{
-                slot.setTitle("", for: .normal)
+            for answerSlot in answerButtons{
+                answerSlot.setTitle("", for: .normal)
+                answerSlot.isUserInteractionEnabled = false
             }
+            
+            backButton.setImage(UIImage.init(named: "arrowLeftDisabled"), for: .normal)
+            backButton.isUserInteractionEnabled = false
+            nextButton.setImage(UIImage.init(named: "arrowRightDisabled"), for: .normal)
+            nextButton.isUserInteractionEnabled = false
+        }else{
+            backButton.setImage(UIImage.init(named: "arrowLeftEnabled"), for: .normal)
+            backButton.isUserInteractionEnabled = true
+            nextButton.setImage(UIImage.init(named: "arrowRightEnabled"), for: .normal)
+            nextButton.isUserInteractionEnabled = true
         }
     }
     
@@ -79,6 +87,7 @@ class ViewController: UIViewController {
         for slots in answerButtons{
             slots.setTitle("", for: .normal)
             slots.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: .normal)
+            slots.isUserInteractionEnabled = true
         }
         //populate slots according to given answer choices
         var count = 0
@@ -89,6 +98,7 @@ class ViewController: UIViewController {
     }
     
     func updateCards(){
+        
         //if finished the deck
         if (currentIndex >= flashcards.count){
             let alertController = UIAlertController(title: "Finished!", message:
@@ -119,15 +129,6 @@ class ViewController: UIViewController {
         
     }
     
-    func displayEmptyDeck(){
-        frontLabel.text = "It's empty here :( \n\nAdd some cards to get started!"
-        backLabel.text = "It's still empty over here."
-        
-        //test
-        nextButton.isHidden = true
-        backButton.isHidden = true
-        
-    }
     //actions connected to all four answer buttons
     @IBAction func answerPressed(_ sender: UIButton) {
         
@@ -155,19 +156,22 @@ class ViewController: UIViewController {
     }
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         
-        if (frontLabel.isHidden) {
-            frontLabel.isHidden = false
-        } else{
-            frontLabel.isHidden = true
-            
-            //highlights correct answer is the backLabel is revealed
-            for choice in answerButtons{
-                if (choice.titleLabel?.text == backLabel.text){
+        flipFlashcard()
+    }
+    func flipFlashcard(){
+        UIView.transition(with: cardView, duration: 0.3, options: .transitionFlipFromRight, animations: {
+            if (self.frontLabel.isHidden) {
+                self.frontLabel.isHidden = false
+            } else{
+                self.frontLabel.isHidden = true
+                //highlights correct answer is the backLabel is revealed
+                for choice in self.answerButtons{
+                    if (choice.titleLabel?.text == self.backLabel.text){
                     choice.titleLabel?.textColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
                 }
             }
-            
         }
+        })
     }
     
     func addShadowsToChoices(){
@@ -236,12 +240,12 @@ class ViewController: UIViewController {
         cardView.bringSubviewToFront(backLabel)
         cardView.bringSubviewToFront(frontLabel)
         
-        addButton.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 0.0, height: 0.0), opacity: 0.8, shadowRadius: 2.0, cornerRadius: 20.0, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight], fillColor: #colorLiteral(red: 0.2146924841, green: 0.3467160454, blue: 0.9650023794, alpha: 1))
-        
-        nextButton.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 0.0, height: 0.0), opacity: 0.8, shadowRadius: 2.0, cornerRadius: nextButton.frame.size.width / 2, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight], fillColor: #colorLiteral(red: 0.2146924841, green: 0.3467160454, blue: 0.9650023794, alpha: 1))
-        backButton.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 0.0, height: 0.0), opacity: 0.8, shadowRadius: 2.0, cornerRadius: nextButton.frame.size.width / 2, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight], fillColor: #colorLiteral(red: 0.2146924841, green: 0.3467160454, blue: 0.9650023794, alpha: 1))
-        //Flipped
-        backButtonImage.transform = CGAffineTransform(scaleX: -1, y: 1);
+//        addButton.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 0.0, height: 0.0), opacity: 0.8, shadowRadius: 2.0, cornerRadius: 20.0, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight], fillColor: #colorLiteral(red: 0.2146924841, green: 0.3467160454, blue: 0.9650023794, alpha: 1))
+//
+//        nextButton.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 0.0, height: 0.0), opacity: 0.8, shadowRadius: 2.0, cornerRadius: nextButton.frame.size.width / 2, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight], fillColor: #colorLiteral(red: 0.2146924841, green: 0.3467160454, blue: 0.9650023794, alpha: 1))
+//        backButton.addShadow(shadowColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), offSet: CGSize(width: 0.0, height: 0.0), opacity: 0.8, shadowRadius: 2.0, cornerRadius: nextButton.frame.size.width / 2, corners: [.topRight, .topLeft, .bottomLeft, .bottomRight], fillColor: #colorLiteral(red: 0.2146924841, green: 0.3467160454, blue: 0.9650023794, alpha: 1))
+//        //Flipped
+//        backButtonImage.transform = CGAffineTransform(scaleX: -1, y: 1);
 
         
         addShadowsToChoices()
