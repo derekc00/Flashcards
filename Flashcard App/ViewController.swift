@@ -79,7 +79,45 @@ class ViewController: UIViewController {
             nextButton.setImage(UIImage.init(named: "arrowRight"), for: .normal)
             nextButton.isUserInteractionEnabled = true
         }
+        
+        //optional --- Card bouncing
+        cardView.alpha = 0.0
+        cardView.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveLinear, animations: {
+            self.cardView.alpha = 1.0
+            self.cardView.transform = CGAffineTransform.identity
+        }) { (finished) in
+            
+            print("finished")
+//            self.cascade()
+        }
+        
+//        for answerButton in answerButtons {
+//            answerButton.alpha = 0.0
+//        }
+        
+        
+        
     }
+//    func cascade(){
+//
+//        for i in stride(from: 0, to: answerButtons.count, by: 1){
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0, execute: {
+//                let currentButton: UIButton = self.answerButtons[i]
+//                    currentButton.alpha = 0.0
+//                    currentButton.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+//
+//
+//                    UIView.animate(withDuration: 0.6, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+//                        currentButton.alpha = 1.0
+//                        currentButton.transform = CGAffineTransform.identity
+//
+//                    })
+//            })
+//
+//        }
+//    }
     
     func populateAnswers(){
         
@@ -179,7 +217,7 @@ class ViewController: UIViewController {
     func animateCardOutLeft(){
         UIView.animate(withDuration: 0.2, animations: {
             self.cardView.transform = CGAffineTransform.identity.translatedBy(x: -300.0, y: 0.0)
-        }) { (finsihed) in
+        }) { (finished) in
             
             //update the text to maintain animation
             self.updateCards()
@@ -199,7 +237,7 @@ class ViewController: UIViewController {
     func animateCardOutRight(){
         UIView.animate(withDuration: 0.2, animations: {
             self.cardView.transform = CGAffineTransform.identity.translatedBy(x: 300.0, y: 0.0)
-        }) { (finsihed) in
+        }) { (finished) in
             
             //update the text to maintain animation
             self.updateCards()

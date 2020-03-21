@@ -26,7 +26,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is the capital of Brazil?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XU-gA-gfF">
-                                        <rect key="frame" x="0.0" y="23.5" width="331" height="266.5"/>
+                                        <rect key="frame" x="8" y="8" width="315" height="297.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                         <nil key="textColor"/>
@@ -37,14 +37,16 @@
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="0XU-gA-gfF" firstAttribute="width" secondItem="YDQ-s6-qPx" secondAttribute="width" id="0f6-Pv-0ec"/>
+                                    <constraint firstAttribute="bottom" secondItem="0XU-gA-gfF" secondAttribute="bottom" constant="8" id="G4R-32-x3e"/>
                                     <constraint firstItem="0XU-gA-gfF" firstAttribute="centerX" secondItem="YDQ-s6-qPx" secondAttribute="centerX" id="Hg7-9V-SZa"/>
+                                    <constraint firstItem="0XU-gA-gfF" firstAttribute="leading" secondItem="YDQ-s6-qPx" secondAttribute="leading" constant="8" id="LdR-5b-Myo"/>
+                                    <constraint firstAttribute="trailing" secondItem="0XU-gA-gfF" secondAttribute="trailing" constant="8" id="RVS-d0-dED"/>
                                     <constraint firstItem="mSB-MB-Zo1" firstAttribute="width" secondItem="YDQ-s6-qPx" secondAttribute="width" id="TSL-e8-IML"/>
                                     <constraint firstItem="0XU-gA-gfF" firstAttribute="centerY" secondItem="YDQ-s6-qPx" secondAttribute="centerY" id="WHW-Rm-3zH"/>
                                     <constraint firstItem="mSB-MB-Zo1" firstAttribute="centerY" secondItem="YDQ-s6-qPx" secondAttribute="centerY" id="bZG-ne-JZr"/>
+                                    <constraint firstItem="0XU-gA-gfF" firstAttribute="top" secondItem="YDQ-s6-qPx" secondAttribute="top" constant="8" id="ovt-6p-5WW"/>
                                     <constraint firstItem="mSB-MB-Zo1" firstAttribute="centerX" secondItem="YDQ-s6-qPx" secondAttribute="centerX" id="pTu-cp-rJ9"/>
                                     <constraint firstItem="mSB-MB-Zo1" firstAttribute="height" secondItem="YDQ-s6-qPx" secondAttribute="height" multiplier="0.85" id="wCe-kQ-fal"/>
-                                    <constraint firstItem="0XU-gA-gfF" firstAttribute="height" secondItem="YDQ-s6-qPx" secondAttribute="height" multiplier="0.85" id="xZ7-BR-XIG"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="qDS-1w-L6O" appends="YES" id="dI0-ih-KRW"/>
