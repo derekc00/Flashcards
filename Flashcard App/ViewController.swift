@@ -44,6 +44,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         //adds shadows and colors
         configObjects()
@@ -52,7 +53,24 @@ class ViewController: UIViewController {
         readSavedFlashcards()
         
         //shows first flashcard
-        updateCards()
+        if flashcards.count == 0 {
+            displayEmptyDeck()
+        }else{
+            updateCards()
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if flashcards.count != 0 {
+            
+            nextButton.isHidden = false
+            backButton.isHidden = false
+        }else{
+            for slot in answerButtons{
+                slot.setTitle("", for: .normal)
+            }
+        }
     }
     
     func populateAnswers(){
@@ -98,6 +116,15 @@ class ViewController: UIViewController {
             populateAnswers()
         }
         
+        
+    }
+    
+    func displayEmptyDeck(){
+        frontLabel.text = "It's empty here :( \n\nAdd some cards to get started!"
+        backLabel.text = "It's still empty over here."
+        
+        nextButton.isHidden = true
+        backButton.isHidden = true
         
     }
     //actions connected to all four answer buttons
@@ -218,5 +245,6 @@ class ViewController: UIViewController {
         
         addShadowsToChoices()
     }
+
 }
 
