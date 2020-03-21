@@ -15,23 +15,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash-Screen" translatesAutoresizingMaskIntoConstraints="NO" id="OUr-rk-eWE">
-                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Splash-Screen" translatesAutoresizingMaskIntoConstraints="NO" id="OUr-rk-eWE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="OUr-rk-eWE" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0yC-2Q-8HF"/>
-                            <constraint firstItem="OUr-rk-eWE" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="g2R-5r-oNx"/>
-                            <constraint firstItem="OUr-rk-eWE" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="oKN-Wq-2xa"/>
-                            <constraint firstItem="OUr-rk-eWE" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qf7-iZ-Rpp"/>
+                            <constraint firstItem="OUr-rk-eWE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="3Cr-v2-PIW"/>
+                            <constraint firstItem="OUr-rk-eWE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GN5-Ub-Rw1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OUr-rk-eWE" secondAttribute="trailing" id="WqW-ht-hAR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OUr-rk-eWE" secondAttribute="bottom" constant="-34" id="dcc-P4-wTg"/>
+                            <constraint firstItem="OUr-rk-eWE" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-5" id="qf7-iZ-Rpp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14" y="376"/>
+            <point key="canvasLocation" x="13.043478260869566" y="375.66964285714283"/>
         </scene>
     </scenes>
     <resources>
