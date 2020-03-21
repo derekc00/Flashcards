@@ -9,7 +9,7 @@ Allows for multiple answer choices
 
 ### App Walk-though
 
-<img src="https://i.imgur.com/BbAMqf6.gifv" width=200><br>
+<img src="https://i.imgur.com/BbAMqf6.gif" width=200><br>
 
 ## Required
 - [x] User should see the app icon 
