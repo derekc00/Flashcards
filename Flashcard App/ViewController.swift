@@ -123,6 +123,7 @@ class ViewController: UIViewController {
         frontLabel.text = "It's empty here :( \n\nAdd some cards to get started!"
         backLabel.text = "It's still empty over here."
         
+        //test
         nextButton.isHidden = true
         backButton.isHidden = true
         
