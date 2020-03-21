@@ -11,7 +11,6 @@ Allows for multiple answer choices
 
 <img src="https://i.imgur.com/BbAMqf6.gifv" width=200><br>
 
-
 ## Required
 - [x] User should see the app icon 
 - [x] User should see a splash screen
